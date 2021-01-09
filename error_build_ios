@@ -1,0 +1,87 @@
+## link hd
+https://youtu.be/RBZL6PO2ytc?t=1944
+
+#generate ssh key
+B1. Cai dat git bash https://git-scm.com/downloads
+B2. Bat Git Bash. chay lenh
+ssh-keygen -t rsa
+enter
+enter
+enter cho den khi xong
+B3. chay lenh "cat ~/.ssh/id_rsa.pub"
+B4. Copy nhung thu tren man hinh gui cho a Tuan
+
+#setup build mumiapp
+- clone. npm i. copy file eoffice.xcodeproj. npx react-native link. copy thu muc fonts vao node_modules/react-native-vector-icons. 
+- npx pod-install. sua file line 91. node_modules/react-native/RTC...module.mm
+
+static BOOL RCTParseUnused(const char **input)
+{
+  return  RCTReadString(input, "__unused") ||
+          RCTReadString(input, "__attribute__((__unused__))") ||
+          RCTReadString(input, "__attribute__((unused))");
+}
+
+
+loi react-native version thi off het terminal di la duoc
+
+
+{
+  "baseUrl": "https://office.adfilex.vn/business-service/",
+  "sso": {
+    "url": "https://office.adfilex.vn/sso",
+    "clientId": "VPDT_STAGING",
+    "clientPass": "vpdt@16)$"
+  },
+  "version": {
+    "ios": 2020120100,
+    "android": 2020120100
+  }
+}
+
+
+main.jsbundle fix https://stackoverflow.com/questions/49505446/main-jsbundle-does-not-exist-this-must-be-a-bug-with-echo-react-native
+
+
+react-native run-ios --device "______\'s iPhone"
+
+fix product-acchive build false # https://stackoverflow.com/questions/50718018/xcode-10-error-multiple-commands-produce
+organizer->archives window
+https://www.youtube.com/watch?v=Wb9yQUP04zg #run build ios
+
+fix image dont show iphone ios 14
+link hd: https://stackoverflow.com/questions/64016070/react-native-image-is-not-loaded-in-ios-14-upgrade
+https://github.com/facebook/react-native/issues/29279
+
+note:
+"build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
+"link": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios"
+npm run link. roi copy folder ios/access vao phases copy bundle resource
+
+node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
+line 271 paste and change
+
+#pragma mark - CALayerDelegate
+
+- (void)displayLayer:(CALayer *)layer
+{
+  if (_currentFrame) {
+    layer.contentsScale = self.animatedImageScale;
+    layer.contents = (__bridge id)_currentFrame.CGImage;
+  } else {
+    [super displayLayer:layer];
+  }
+}
+
+run npx patch-package react-native
+
+add scripts
+"scripts": {
+  ...
+  "postinstall": "patch-package",
+}
+
+build again app. ==> done
+
+fix launchScreen.xib file not found
+https://github.com/react-native-community/upgrade-support/issues/99
