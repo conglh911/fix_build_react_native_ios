@@ -57,6 +57,7 @@ note:
 "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
 "link": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios"
 npm run link. roi copy folder ios/access vao phases copy bundle resource
+link hd: https://stackoverflow.com/questions/58356653/react-native-ios-not-showing-local-image
 
 node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
 line 271 paste and change
